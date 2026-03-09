@@ -21,7 +21,7 @@ import ChatWidget from "./components/ChatWidget";
 import OurClientsPage from "./pages/OurClientsPage";
 
 
-import { Routes, Route } from "react-router-dom";
+import { Navigate, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -57,6 +57,14 @@ function App() {
         <Route path="/managed-services" element={<ManagedServices />} />
         <Route path="/assurance" element={<AssurancePage />} />
         <Route path="/services/:slug" element={<ServiceDetailPage />} />
+        <Route
+          path="/staff-augmentation"
+          element={<Navigate to="/services/staff-augmentation" replace />}
+        />
+        <Route
+          path="/information-technology-services"
+          element={<Navigate to="/services/computer-technology" replace />}
+        />
         <Route path="/service-hub/:slug" element={<ServiceHubPage />} />
         <Route path="/business-services" element={<BusinessServices />} />
         <Route path="/business-solutions" element={<BusinessServices />} />
