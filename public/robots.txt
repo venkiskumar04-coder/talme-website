@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://talme.in/sitemap.xml
