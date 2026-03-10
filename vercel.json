@@ -7,52 +7,57 @@
     },
     {
       "source": "/information-technology-services",
-      "destination": "/services",
+      "destination": "/services/computer-technology",
       "permanent": true
     },
     {
       "source": "/staff-augmentation",
-      "destination": "/services",
+      "destination": "/services/staff-augmentation",
       "permanent": true
     },
     {
       "source": "/business-solutions",
-      "destination": "/services",
+      "destination": "/services/business-solutions",
       "permanent": true
     },
     {
       "source": "/oem-data",
-      "destination": "/services",
+      "destination": "/services/product-manufacturing",
       "permanent": true
     },
     {
       "source": "/aerospace-data",
-      "destination": "/services",
+      "destination": "/services/engineering-solutions",
       "permanent": true
     },
     {
       "source": "/oil-gas-data",
-      "destination": "/services",
+      "destination": "/services/engineering-solutions",
       "permanent": true
     },
     {
       "source": "/computer-technology",
-      "destination": "/services",
+      "destination": "/services/computer-technology",
       "permanent": true
     },
     {
       "source": "/engineering-solutions",
-      "destination": "/services",
+      "destination": "/services/engineering-solutions",
       "permanent": true
     },
     {
       "source": "/product-manufacturing",
-      "destination": "/services",
+      "destination": "/services/product-manufacturing",
       "permanent": true
     },
     {
       "source": "/health-care-services",
-      "destination": "/services",
+      "destination": "/services/health-care-services",
+      "permanent": true
+    },
+    {
+      "source": "/automotive-data",
+      "destination": "/services/engineering-solutions",
       "permanent": true
     },
     {
