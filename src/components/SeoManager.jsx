@@ -7,18 +7,18 @@ import { serviceHubDetails } from "../data/serviceHubData";
 const SITE_URL = "https://talme.in";
 
 const defaultMeta = {
-  title: "Talme Technologies Pvt Ltd",
+  title: "Talme Technologies Pvt Ltd | Engineering Services",
   description:
-    "Talme Technologies Pvt Ltd provides engineering services, IT consulting, staffing solutions, and digital transformation services.",
+    "Talme Technologies provides engineering services, IT consulting, and staffing solutions for global enterprises.",
   keywords:
     "Talme Technologies, engineering services, IT consulting, staffing solutions, automotive engineering, digital transformation",
 };
 
 const staticRouteMeta = {
   "/": {
-    title: "Talme Technologies Pvt Ltd",
+    title: "Talme Technologies Pvt Ltd | Engineering Services",
     description:
-      "Talme Technologies Pvt Ltd provides engineering services, IT consulting, staffing solutions, and digital transformation services.",
+      "Talme Technologies provides engineering services, IT consulting, and staffing solutions for global enterprises.",
   },
   "/services": {
     title: "Services | Talme Technologies",

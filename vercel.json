@@ -1,4 +1,66 @@
 {
+  "redirects": [
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/information-technology-services",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/staff-augmentation",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/business-solutions",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/oem-data",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/aerospace-data",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/oil-gas-data",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/computer-technology",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/engineering-solutions",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/product-manufacturing",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/health-care-services",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/clients",
+      "destination": "/our-clients",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

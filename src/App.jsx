@@ -7,14 +7,12 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import SeoManager from "./components/SeoManager";
-import AboutUsPage from "./pages/AboutUsPage";
 import BusinessServices from "./pages/BusinessServices";
 import ClientAccountingServices from "./pages/ClientAccountingServices";
 import ContactPage from "./pages/ContactPage";
 import ContactCountryPage from "./pages/ContactCountryPage";
 import AssurancePage from "./pages/AssurancePage";
 import CareersPage from "./pages/CareersPage";
-import InformationTechnologyServicesPage from "./pages/InformationTechnologyServicesPage";
 import InsightDetailPage from "./pages/InsightDetailPage";
 import InsightsPage from "./pages/InsightsPage";
 import LegalPage from "./pages/LegalPage";
@@ -64,39 +62,47 @@ function App() {
         <Route path="/services/:slug" element={<ServiceDetailPage />} />
         <Route
           path="/staff-augmentation"
-          element={<Navigate to="/services/staff-augmentation" replace />}
+          element={<Navigate to="/services" replace />}
         />
         <Route
           path="/engineering-solutions"
-          element={<Navigate to="/services/engineering-solutions" replace />}
+          element={<Navigate to="/services" replace />}
         />
         <Route
           path="/health-care-services"
-          element={<Navigate to="/services/health-care-services" replace />}
+          element={<Navigate to="/services" replace />}
         />
         <Route
           path="/computer-technology"
-          element={<Navigate to="/services/computer-technology" replace />}
+          element={<Navigate to="/services" replace />}
         />
         <Route
           path="/product-manufacturing"
-          element={<Navigate to="/services/product-manufacturing" replace />}
+          element={<Navigate to="/services" replace />}
         />
         <Route
           path="/oem-data"
-          element={<Navigate to="/services/product-manufacturing" replace />}
+          element={<Navigate to="/services" replace />}
         />
         <Route
           path="/automotive-data"
           element={<Navigate to="/services/engineering-solutions" replace />}
         />
         <Route
+          path="/aerospace-data"
+          element={<Navigate to="/services" replace />}
+        />
+        <Route
+          path="/oil-gas-data"
+          element={<Navigate to="/services" replace />}
+        />
+        <Route
           path="/information-technology-services"
-          element={<InformationTechnologyServicesPage />}
+          element={<Navigate to="/services" replace />}
         />
         <Route path="/service-hub/:slug" element={<ServiceHubPage />} />
         <Route path="/business-services" element={<BusinessServices />} />
-        <Route path="/business-solutions" element={<BusinessServices />} />
+        <Route path="/business-solutions" element={<Navigate to="/services" replace />} />
         <Route path="/people-practice" element={<PeoplePractice />} />
 
         {/* About Page */}
@@ -107,7 +113,7 @@ function App() {
         <Route path="/insights/:slug" element={<InsightDetailPage />} />
         <Route path="/our-clients" element={<OurClientsPage />} />
         <Route path="/clients" element={<Navigate to="/our-clients" replace />} />
-        <Route path="/about-us" element={<AboutUsPage />} />
+        <Route path="/about-us" element={<Navigate to="/about" replace />} />
         <Route path="/legal" element={<LegalPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/contact-us" element={<ContactPage />} />
