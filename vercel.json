@@ -12,6 +12,11 @@
       "permanent": true
     },
     {
+      "source": "/vite.svg",
+      "destination": "/logo.png",
+      "permanent": true
+    },
+    {
       "source": "/about-us",
       "destination": "/about",
       "permanent": true

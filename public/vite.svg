@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Talme Technologies icon">
-  <rect width="64" height="64" rx="14" fill="#ffffff" />
-  <circle cx="32" cy="32" r="24" fill="#f3f6fb" stroke="#d8e2f0" stroke-width="2" />
-  <path d="M19 23h26v6H35v20h-6V29H19z" fill="#5f7696" />
-  <path d="M24 18h16v5H24z" fill="#7f95b3" />
-</svg>
