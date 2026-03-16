@@ -1,6 +1,6 @@
-import "./ContactPage.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import "./ContactPage.css";
 
 const officeLocations = [
   {
@@ -10,8 +10,7 @@ const officeLocations = [
         label: "India Office",
         address:
           "No.24, Vital Mallya Road, Level 14, Concorde Towers, UB City, Bangalore, Karnataka 560001, India.",
-        directions:
-          "https://maps.google.com/?q=UB+City+Bangalore",
+        directions: "https://maps.google.com/?q=UB+City+Bangalore",
       },
     ],
   },
@@ -29,6 +28,15 @@ const officeLocations = [
 
 function ContactPage() {
   const { hash } = useLocation();
+  const [formData, setFormData] = useState({
+    name: "",
+    companyName: "",
+    email: "",
+    message: "",
+    consent: false,
+  });
+  const [status, setStatus] = useState("idle");
+  const [feedback, setFeedback] = useState("");
 
   useEffect(() => {
     if (!hash) return;
@@ -37,6 +45,58 @@ function ContactPage() {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, [hash]);
+
+  const handleChange = (event) => {
+    const { name, value, type, checked } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setStatus("submitting");
+    setFeedback("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          companyName: formData.companyName.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+          consent: formData.consent,
+        }),
+      });
+
+      const rawResponse = await response.text();
+      const result = rawResponse ? JSON.parse(rawResponse) : {};
+
+      if (!response.ok) {
+        throw new Error(result.error || "Unable to send your message.");
+      }
+
+      setFormData({
+        name: "",
+        companyName: "",
+        email: "",
+        message: "",
+        consent: false,
+      });
+      setStatus("success");
+      setFeedback("Your message has been sent successfully.");
+    } catch (error) {
+      setStatus("error");
+      setFeedback(
+        error instanceof Error ? error.message : "Unable to send your message."
+      );
+    }
+  };
 
   return (
     <main className="contact-premium-page">
@@ -59,7 +119,11 @@ function ContactPage() {
           </p>
 
           {officeLocations.map((country) => (
-            <section key={country.country} className="country-block" id={country.country.toLowerCase()}>
+            <section
+              key={country.country}
+              className="country-block"
+              id={country.country.toLowerCase()}
+            >
               <h2>{country.country}</h2>
               <div className="office-list">
                 {country.offices.map((office) => (
@@ -79,19 +143,64 @@ function ContactPage() {
         <aside className="contact-right-col">
           <section className="contact-form-card">
             <h2>Get in touch with us</h2>
-            <form>
-              <input type="text" placeholder="Name*" />
-              <input type="text" placeholder="Company Name*" />
-              <input type="email" placeholder="Email*" />
-              <textarea placeholder="Message" rows={4} />
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Name*"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="text"
+                name="companyName"
+                placeholder="Company Name*"
+                value={formData.companyName}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email*"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Message"
+                rows={4}
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
               <label className="contact-consent">
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  name="consent"
+                  checked={formData.consent}
+                  onChange={handleChange}
+                  required
+                />
                 <span>
                   I confirm, I have read and agree to TALME Privacy Notice.
                 </span>
               </label>
-              <button type="button">Send</button>
+              <button type="submit" disabled={status === "submitting"}>
+                {status === "submitting" ? "Sending..." : "Send"}
+              </button>
             </form>
+            {feedback ? (
+              <p
+                className={`contact-form-feedback ${
+                  status === "success" ? "is-success" : "is-error"
+                }`}
+              >
+                {feedback}
+              </p>
+            ) : null}
           </section>
 
           <section className="contact-coordinates-card">

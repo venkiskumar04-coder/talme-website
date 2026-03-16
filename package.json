@@ -1,5 +1,5 @@
 {
-  "name": "talme-clone",
+  "name": "talme",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,9 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "news-api": "node server/news-server.js"
   },
   "dependencies": {
+    "dotenv": "^16.6.1",
+    "nodemailer": "^7.0.3",
     "react": "^19.2.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.2.0",

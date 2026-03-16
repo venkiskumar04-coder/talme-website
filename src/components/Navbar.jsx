@@ -11,6 +11,7 @@ function Navbar() {
 
   const searchItems = [
     { label: "Home", to: "/" },
+    { label: "News & Events", to: "/news-events" },
     { label: "About Us", to: "/about" },
     { label: "Insights", to: "/insights" },
     { label: "Our Clients", to: "/our-clients" },
@@ -104,6 +105,9 @@ function Navbar() {
           <ul className="top-links">
             <li>
               <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/news-events">News &amp; Events</Link>
             </li>
             <li>
               <Link to="/about">About Us</Link>

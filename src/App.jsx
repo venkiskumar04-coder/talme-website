@@ -21,9 +21,20 @@ import ServiceDetailPage from "./pages/ServiceDetailPage";
 import ServiceHubPage from "./pages/ServiceHubPage";
 import ChatWidget from "./components/ChatWidget";
 import OurClientsPage from "./pages/OurClientsPage";
+import NewsEventsPage from "./pages/NewsEventsPage";
+import SiteMapPage from "./pages/SiteMapPage";
 
+import { Navigate, Route, Routes } from "react-router-dom";
 
-import { Navigate, Routes, Route } from "react-router-dom";
+function HomePage() {
+  return (
+    <>
+      <Hero />
+      <Engagement />
+      <Services />
+    </>
+  );
+}
 
 function App() {
   return (
@@ -33,30 +44,9 @@ function App() {
       <Navbar />
 
       <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/services" element={<HomePage />} />
 
-        {/* Home Page */}
-        <Route
-          path="/"
-          element={
-            <>
-              <Hero />
-              <Engagement />
-              <Services />
-            </>
-          }
-        />
-        <Route
-          path="/services"
-          element={
-            <>
-              <Hero />
-              <Engagement />
-              <Services />
-            </>
-          }
-        />
-
-        {/* Managed Services Page */}
         <Route path="/managed-services" element={<ManagedServices />} />
         <Route path="/assurance" element={<AssurancePage />} />
         <Route path="/services/:slug" element={<ServiceDetailPage />} />
@@ -85,7 +75,15 @@ function App() {
           element={<Navigate to="/services/product-manufacturing" replace />}
         />
         <Route
+          path="/oem-engineering-data"
+          element={<Navigate to="/services/product-manufacturing" replace />}
+        />
+        <Route
           path="/automotive-data"
+          element={<Navigate to="/services/engineering-solutions" replace />}
+        />
+        <Route
+          path="/automotive-engineering-services"
           element={<Navigate to="/services/engineering-solutions" replace />}
         />
         <Route
@@ -93,7 +91,23 @@ function App() {
           element={<Navigate to="/services/engineering-solutions" replace />}
         />
         <Route
+          path="/aerospace-engineering-services"
+          element={<Navigate to="/services/engineering-solutions" replace />}
+        />
+        <Route
           path="/oil-gas-data"
+          element={<Navigate to="/services/engineering-solutions" replace />}
+        />
+        <Route
+          path="/oil-and-gas-data"
+          element={<Navigate to="/services/engineering-solutions" replace />}
+        />
+        <Route
+          path="/electrical-data"
+          element={<Navigate to="/services/engineering-solutions" replace />}
+        />
+        <Route
+          path="/electrical-engineering-services"
           element={<Navigate to="/services/engineering-solutions" replace />}
         />
         <Route
@@ -102,24 +116,37 @@ function App() {
         />
         <Route path="/service-hub/:slug" element={<ServiceHubPage />} />
         <Route path="/business-services" element={<BusinessServices />} />
-        <Route path="/business-solutions" element={<Navigate to="/services/business-solutions" replace />} />
+        <Route
+          path="/business-solutions"
+          element={<Navigate to="/services/business-solutions" replace />}
+        />
         <Route path="/people-practice" element={<PeoplePractice />} />
 
-        {/* About Page */}
         <Route path="/about" element={<About />} />
+        <Route path="/about-us" element={<Navigate to="/about" replace />} />
         <Route path="/client-accounting" element={<ClientAccountingServices />} />
+        <Route
+          path="/client-accounting-services"
+          element={<Navigate to="/client-accounting" replace />}
+        />
+        <Route
+          path="/clients-accounting-services"
+          element={<Navigate to="/client-accounting" replace />}
+        />
         <Route path="/careers" element={<CareersPage />} />
+        <Route path="/job-description" element={<Navigate to="/careers" replace />} />
+        <Route path="/job-descriptions" element={<Navigate to="/careers" replace />} />
         <Route path="/insights" element={<InsightsPage />} />
+        <Route path="/news-events" element={<NewsEventsPage />} />
+        <Route path="/news-admin" element={<NewsEventsPage adminMode />} />
+        <Route path="/site-map" element={<SiteMapPage />} />
         <Route path="/insights/:slug" element={<InsightDetailPage />} />
         <Route path="/our-clients" element={<OurClientsPage />} />
         <Route path="/clients" element={<Navigate to="/our-clients" replace />} />
-        <Route path="/about-us" element={<Navigate to="/about" replace />} />
         <Route path="/legal" element={<LegalPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/contact-us" element={<ContactPage />} />
         <Route path="/contact/:country" element={<ContactCountryPage />} />
-
-
       </Routes>
 
       <Footer />

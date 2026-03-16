@@ -23,7 +23,7 @@ function About() {
 
         <div className="about-highlights">
           <div className="about-highlight">
-            <strong>15+ Years</strong>
+            <strong>12+ Years</strong>
             <span>Industry and engineering experience</span>
           </div>
           <div className="about-highlight">

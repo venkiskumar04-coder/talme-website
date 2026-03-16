@@ -1,12 +1,33 @@
 {
   "redirects": [
     {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.talme.in"
+        }
+      ],
+      "destination": "https://talme.in/$1",
+      "permanent": true
+    },
+    {
       "source": "/about-us",
       "destination": "/about",
       "permanent": true
     },
     {
+      "source": "/contact-us",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
       "source": "/information-technology-services",
+      "destination": "/services/computer-technology",
+      "permanent": true
+    },
+    {
+      "source": "/it-data",
       "destination": "/services/computer-technology",
       "permanent": true
     },

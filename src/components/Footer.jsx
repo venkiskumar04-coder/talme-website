@@ -1,49 +1,86 @@
-import "./Footer.css";
-import { FaWhatsapp, FaInstagram, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { useState } from "react";
+import { FaFacebook, FaInstagram, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import "./Footer.css";
+
+const footerSections = [
+  {
+    title: "Managed Services",
+    links: [
+      { label: "Client Accounting Services", to: "/client-accounting" },
+      { label: "People Practice", to: "/people-practice" },
+      { label: "Business Services", to: "/business-services" },
+      { label: "Compliance Management", to: "/service-hub/compliance-management" },
+    ],
+  },
+  {
+    title: "Assurance",
+    links: [
+      { label: "Audit Services", to: "/service-hub/audit-services" },
+      { label: "Accounting Advisory", to: "/service-hub/accounting-advisory" },
+      { label: "Quality Enablement", to: "/service-hub/quality-enablement" },
+    ],
+  },
+  {
+    title: "Risk Advisory",
+    links: [
+      { label: "Internal Audit", to: "/service-hub/internal-audit" },
+      { label: "SOX Compliance", to: "/service-hub/sox-compliance" },
+      { label: "Technology Risk", to: "/service-hub/technology-risk" },
+      { label: "Process Transformation", to: "/service-hub/process-transformation" },
+    ],
+  },
+  {
+    title: "Consulting",
+    links: [
+      { label: "Financial Advisory", to: "/service-hub/financial-advisory" },
+      { label: "Startup Advisory", to: "/service-hub/startup-advisory" },
+      { label: "BPM Solutions", to: "/service-hub/bpm-solutions" },
+      { label: "Virtual CFO Services", to: "/service-hub/virtual-cfo-services" },
+    ],
+  },
+  {
+    title: "Digital",
+    links: [
+      { label: "Digital Enablement", to: "/service-hub/digital-enablement" },
+      { label: "Data Analytics", to: "/service-hub/data-analytics" },
+      { label: "Intelligent Automation", to: "/service-hub/intelligent-automation" },
+      { label: "Enterprise Solutions", to: "/service-hub/enterprise-solutions" },
+    ],
+  },
+];
 
 function Footer() {
+  const [openSection, setOpenSection] = useState("Managed Services");
+
   return (
     <footer className="footer">
       <div className="footer-columns">
-        <div className="footer-column">
-          <h4>MANAGED SERVICES</h4>
-          <Link to="/client-accounting">Client Accounting Services</Link>
-          <Link to="/people-practice">People Practice</Link>
-          <Link to="/business-services">Business Services</Link>
-          <Link to="/service-hub/compliance-management">Compliance Management</Link>
-        </div>
+        {footerSections.map((section) => {
+          const isOpen = openSection === section.title;
 
-        <div className="footer-column">
-          <h4>ASSURANCE</h4>
-          <Link to="/service-hub/audit-services">Audit Services</Link>
-          <Link to="/service-hub/accounting-advisory">Accounting Advisory</Link>
-          <Link to="/service-hub/quality-enablement">Quality Enablement</Link>
-        </div>
+          return (
+            <section className={`footer-column ${isOpen ? "is-open" : ""}`} key={section.title}>
+              <button
+                type="button"
+                className="footer-column-toggle"
+                onClick={() => setOpenSection(isOpen ? "" : section.title)}
+                aria-expanded={isOpen}
+              >
+                <h4>{section.title}</h4>
+                <span>{isOpen ? "-" : "+"}</span>
+              </button>
 
-        <div className="footer-column">
-          <h4>RISK ADVISORY</h4>
-          <Link to="/service-hub/internal-audit">Internal Audit</Link>
-          <Link to="/service-hub/sox-compliance">SOX Compliance</Link>
-          <Link to="/service-hub/technology-risk">Technology Risk</Link>
-          <Link to="/service-hub/process-transformation">Process Transformation</Link>
-        </div>
-
-        <div className="footer-column">
-          <h4>CONSULTING</h4>
-          <Link to="/service-hub/financial-advisory">Financial Advisory</Link>
-          <Link to="/service-hub/startup-advisory">Startup Advisory</Link>
-          <Link to="/service-hub/bpm-solutions">BPM Solutions</Link>
-          <Link to="/service-hub/virtual-cfo-services">Virtual CFO Services</Link>
-        </div>
-
-        <div className="footer-column">
-          <h4>DIGITAL</h4>
-          <Link to="/service-hub/digital-enablement">Digital Enablement</Link>
-          <Link to="/service-hub/data-analytics">Data Analytics</Link>
-          <Link to="/service-hub/intelligent-automation">Intelligent Automation</Link>
-          <Link to="/service-hub/enterprise-solutions">Enterprise Solutions</Link>
-        </div>
+              <div className="footer-column-links">
+                {section.links.map((link) => (
+                  <Link key={link.to} to={link.to}>
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
 
       <div className="footer-social">
@@ -51,11 +88,19 @@ function Footer() {
           <FaWhatsapp />
         </a>
 
-        <a href="https://www.instagram.com/talme_tech?igsh=bm5nbXBydTAwdHNh" target="_blank" rel="noreferrer">
+        <a
+          href="https://www.instagram.com/talme_tech?igsh=bm5nbXBydTAwdHNh"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FaInstagram />
         </a>
 
-        <a href="https://www.linkedin.com/company/talme-technologies/posts/?feedView=all" target="_blank" rel="noreferrer">
+        <a
+          href="https://www.linkedin.com/company/talme-technologies/posts/?feedView=all"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FaLinkedin />
         </a>
 
@@ -65,7 +110,8 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        Copyright 2026 TALME Technologies Pvt Ltd. All rights reserved.
+        <Link to="/site-map">Site Map</Link>
+        <span>Copyright 2026 TALME Technologies Pvt Ltd. All rights reserved.</span>
       </div>
     </footer>
   );

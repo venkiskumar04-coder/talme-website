@@ -1,0 +1,26 @@
+export const newsData = [
+  {
+    id: "finance-operating-model",
+    title: "Daily Company Update",
+    summary:
+      "Replace this text with today's company announcement, achievement, or client update.",
+    date: "March 10, 2026",
+    isoDate: "2026-03-10",
+  },
+  {
+    id: "automation-delivery",
+    title: "Operations and Delivery",
+    summary:
+      "Add a short summary of progress across finance operations, compliance work, or delivery milestones.",
+    date: "March 9, 2026",
+    isoDate: "2026-03-09",
+  },
+  {
+    id: "compliance-readiness",
+    title: "Team and Business Highlights",
+    summary:
+      "Use this space for internal events, partnerships, recognitions, or service expansion updates.",
+    date: "March 8, 2026",
+    isoDate: "2026-03-08",
+  },
+];

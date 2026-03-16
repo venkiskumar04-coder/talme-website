@@ -7,18 +7,20 @@ function Hero() {
       <div className="hero-inner">
         <div className="hero-content">
           <span className="hero-kicker">Engineering. Talent. Transformation.</span>
-          <h1>TALME Technologies Pvt Ltd</h1>
+          <h1>TALME</h1>
+          <h2>Corporate delivery engineered for visible outcomes.</h2>
           <p>
-            Corporate-grade engineering and staffing solutions built to improve
-            delivery speed, quality, and measurable business outcomes.
+            TALME partners with ambitious enterprises to strengthen delivery,
+            accelerate execution, and build scalable operating models across
+            engineering, staffing, and digital transformation.
           </p>
 
           <div className="hero-actions">
             <Link to="/managed-services" className="hero-btn hero-btn-primary">
-              Explore Services
+              Explore Capabilities
             </Link>
             <Link to="/contact" className="hero-btn hero-btn-secondary">
-              Talk to Us
+              Speak With TALME
             </Link>
           </div>
 
@@ -28,7 +30,7 @@ function Hero() {
               <span>Projects</span>
             </div>
             <div>
-              <strong>15+</strong>
+              <strong>12+</strong>
               <span>Years</span>
             </div>
             <div>
@@ -37,6 +39,28 @@ function Hero() {
             </div>
           </div>
         </div>
+
+        <aside className="hero-panel">
+          <div className="hero-panel-card hero-panel-card-primary">
+            <span className="hero-panel-label">Executive Snapshot</span>
+            <h2>Premium execution for enterprises that expect precision.</h2>
+            <p>
+              TALME blends engineering depth, structured governance, and
+              delivery discipline to support scale with confidence.
+            </p>
+          </div>
+
+          <div className="hero-panel-grid">
+            <article className="hero-panel-card">
+              <span className="hero-panel-metric">Boardroom Ready</span>
+              <p>Operational visibility, decision support, and disciplined execution.</p>
+            </article>
+            <article className="hero-panel-card">
+              <span className="hero-panel-metric">Global Reach</span>
+              <p>Cross-border support models for delivery continuity and scale.</p>
+            </article>
+          </div>
+        </aside>
       </div>
     </section>
   );

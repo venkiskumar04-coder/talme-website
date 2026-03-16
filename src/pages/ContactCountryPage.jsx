@@ -17,11 +17,11 @@ const contactByCountry = {
     title: "Singapore Office",
     cityLabel: "Singapore",
     intro: "Better yet, see us in person!",
-    address: "8 Marina View, Singapore 018981.",
+    address: "8 Marina Blvd, Singapore 018981.",
     hours: "Open today 09:00 am - 05:00 pm",
-    directions: "https://maps.google.com/?q=8+Marina+View+Singapore+018981",
+    directions: "https://maps.google.com/?q=8+Marina+Blvd+Singapore+018981",
     mapSrc:
-      "https://maps.google.com/maps?q=Marina%20Bay%20Singapore&t=&z=13&ie=UTF8&iwloc=&output=embed",
+      "https://maps.google.com/maps?q=8%20Marina%20Blvd%20Singapore%20018981&t=&z=16&ie=UTF8&iwloc=&output=embed",
   },
 };
 
